@@ -43,7 +43,7 @@ const RequestManager = require('./client/RequestManager.js');
   * @class Azuma
   * @extends {EventEmitter}
   */
- module.exports = class Azuma extends EventEmitter {
+module.exports = class Azuma extends EventEmitter {
     /**
      * @param {string} path The path of your extended Kurasuta "BaseCluster.js"
      * @param {KurasutaOptions} [managerOptions={}] Options to initialize Kurasuta with
@@ -83,11 +83,11 @@ const RequestManager = require('./client/RequestManager.js');
      */
     async spawn() {
         if (isPrimary) {
-            while(this.manager.ipc.server.status !== 0) await sleep(1);
+            while (this.manager.ipc.server.status !== 0) await sleep(1);
             await this.manager.ipc.server.close();
             this.manager.ipc.server.removeAllListeners();
             this.manager.ipc = new AzumaIPC(this.manager);
-            while(this.manager.ipc.server.status !== 0) await sleep(1);
+            while (this.manager.ipc.server.status !== 0) await sleep(1);
             this.ratelimits = new AzumaManager(this);
             const tasks = Structures.getBeforeSpawn();
             if (tasks.length) await Promise.all(tasks.map(task => task(this.manager)));
@@ -102,5 +102,5 @@ const RequestManager = require('./client/RequestManager.js');
 }
 
 function sleep(delay) {
-    return new Promise(resolve => setTimeout(resolve, delay*1000));
+    return new Promise(resolve => setTimeout(resolve, delay * 1000));
 }
