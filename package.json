@@ -1,0 +1,34 @@
+{
+  "name": "azuma",
+  "version": "3.0.6",
+  "description": "A package that actually syncs your ratelimits across all your clusters on Discord.JS",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deivu/Azuma.git"
+  },
+  "author": "Deivu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Deivu/Azuma/issues"
+  },
+  "homepage": "https://github.com/Deivu/Azuma/blob/master/README.md",
+  "keywords": [
+    "discord",
+    "discord.js",
+    "discordjs",
+    "discord-bot",
+    "discord-ratelimits",
+    "sharding",
+    "api",
+    "ratelimits",
+    "node"
+  ],
+  "dependencies": {
+    "@sapphire/async-queue": "^1.1.7",
+    "cheshire": "github:Deivu/Cheshire#2.0.2",
+    "discord.js": ">=13.0.0",
+    "kurasuta": "^3.0.1"
+  }
+}

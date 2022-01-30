@@ -1,0 +1,26 @@
+const { ShardingManager } = require('kurasuta');
+
+const Struct = {
+    ShardingManager: ShardingManager
+};
+const beforeSpawn = [];
+
+module.exports = class Structures {
+    static extend(name, structure) {
+        if (Struct[name]) Struct[name] = structure;
+    }
+
+    static get(name) {
+        return Struct[name];
+    }
+    
+    static setBeforeSpawn(fn) {
+        beforeSpawn.push(fn);
+    }
+
+    static getBeforeSpawn() {
+        const clone = [...beforeSpawn];
+        beforeSpawn.length = 0;
+        return clone;
+    }
+}
