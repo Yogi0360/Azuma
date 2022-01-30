@@ -26,6 +26,7 @@
     "node"
   ],
   "dependencies": {
+    "@discordjs/form-data": "^3.0.1",
     "@sapphire/async-queue": "^1.1.7",
     "cheshire": "github:Deivu/Cheshire#2.0.2",
     "discord.js": ">=13.0.0",
