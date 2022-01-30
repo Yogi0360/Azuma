@@ -1,5 +1,5 @@
 const { AsyncQueue } = require('@sapphire/async-queue');
-const { Util, Constants } = require('discord.js');
+const { Constants } = require('discord.js');
 const DiscordConstants = Constants;
 const { setTimeout: sleep } = require('node:timers/promises');
 
