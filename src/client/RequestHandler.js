@@ -1,6 +1,7 @@
 const { AsyncQueue } = require('@sapphire/async-queue');
 const { Util, Constants } = require('discord.js');
 const DiscordConstants = Constants;
+const { setTimeout: sleep } = require('node:timers/promises');
 
 const AzumaConstants = require('../Constants.js');
 const RequestError = require('./structures/RequestError.js');
@@ -93,7 +94,7 @@ module.exports = class RequestHandler {
                     limit,
                     global
                 });
-            await Util.delayFor(timeout);
+            await sleep(timeout);
         }
         // Perform the request
         let res;
@@ -141,7 +142,7 @@ module.exports = class RequestHandler {
                     `  Retry After    : ${after}ms`
                 );
                 // Retry after, but add 500ms on the top of original retry after
-                await Util.delayFor(after + 500);
+                await sleep(after + 500);
                 return this.execute(request);
             }
             // Handle possible malformed requests

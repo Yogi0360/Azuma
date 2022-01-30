@@ -6,6 +6,7 @@ const EventEmitter = require('events');
 const AzumaIPC = require('./ratelimits/AzumaIPC.js');
 const AzumaManager = require('./ratelimits/AzumaManager.js');
 const RequestManager = require('./client/RequestManager.js');
+const { setTimeout: sleep } = require('node:timers/promises');
 
 /**
  * Discord.JS Client
@@ -99,8 +100,4 @@ module.exports = class Azuma extends EventEmitter {
         cluster.client.rest = new RequestManager(cluster.client);
         await cluster.init();
     }
-}
-
-function sleep(delay) {
-    return new Promise(resolve => setTimeout(resolve, delay * 1000));
 }
